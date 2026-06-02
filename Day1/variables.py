@@ -1,17 +1,17 @@
-# name="Kalyan"
-# age=19
-# sem=4
-# print("name")
-# print(name)
-# print(type(name))
-# print("My name is :",name)
-# print(age)
-# print(type(age))
-# print("sem",sem)
+name="Kalyan"
+age=19
+sem=4
+print("name")
+print(name)
+print(type(name))
+print("My name is :",name)
+print(age)
+print(type(age))
+print("sem",sem)
 
 
-# age_curr=age 
-# print(age_curr)
+age_curr=age 
+print(age_curr)
 
 class_today=False 
 learn_today=True

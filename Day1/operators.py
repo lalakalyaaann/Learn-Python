@@ -1,38 +1,38 @@
 # #assignment operator
-# a=5 
-# b=2 
-# sum =a+b
-# print(sum)
-# print(a-b)
-# print(a*b)
-# print(a/b)
+a=5 
+b=2 
+sum =a+b
+print(sum)
+print(a-b)
+print(a*b)
+print(a/b)
 
-# print(a%b) #modulo
-# print(a**b) #power of number. a to the power b 
+print(a%b) #modulo
+print(a**b) #power of number. a to the power b 
 
 # #relational operators
  
-# a=200
-# b=500
-# print(a == b)
-# print(a != b)
-# print( a>= b)
-# print(b <= 0)
-# print(b > a)
+a=200
+b=500
+print(a == b)
+print(a != b)
+print( a>= b)
+print(b <= 0)
+print(b > a)
 
 
 #assignment operators
  
-# number=100
-# number = number + 20
-# print(number)
+number=100
+number = number + 20
+print(number)
 
-# number += 30
-# print(number)
+number += 30
+print(number)
 
-# num=5
-# num **=5
-# print(num)
+num=5
+num **=5
+print(num)
 
 
 # logical values 
