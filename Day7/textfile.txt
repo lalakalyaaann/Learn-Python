@@ -1,0 +1,1 @@
+Hi, This is write mode. I am learning file handling today is day7. Lets learn!
