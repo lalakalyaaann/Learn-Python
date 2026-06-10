@@ -21,3 +21,26 @@ except:
 finally:
     print("This code will always execute.")
 
+
+#more descriptive exceptions
+try:
+    a=int(input("Enter a number : "))
+    b=7/a
+    print(b)
+except Exception as e:
+    print("Error in input. Please enter correct number.",e)
+finally:
+    print("This code will always execute.")
+
+try:
+    a=int(input("Enter a number : "))
+    b=7/a
+    print(b)
+except ValueError as e:
+    print("Error in input. Please enter correct number.",e)
+except ZeroDivisionError as e:
+    print("Error in input. Please enter correct number.",e)
+except Exception as e:
+    print("Error in input. Please enter correct number.",e)
+finally:
+    print("This code will always execute.")
