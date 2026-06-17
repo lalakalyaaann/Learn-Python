@@ -101,4 +101,22 @@ plt.ylabel("User2")
 plt.show()
 
 
+#Matplotlib and pandas-working with real data
+import pandas as pd
+# data
+data = {
+    'Students' : ['Kalyan', 'Ishan', 'Rohit', 'Sandeep'],
+    'Marks' : [98, 75, 45, 86]
+}
 
+df = pd.DataFrame(data)
+print(df)
+
+plt.bar(df['Students'], df['Marks'])
+plt.title("Matplotlib with Pandas Demonstration")
+plt.xlabel("Name of Students")
+plt.ylabel("Marks of Student")
+plt.show()
+
+#Save charts 
+plt.savefig("pd_and_matplot.png")
