@@ -20,6 +20,7 @@ from project import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', views.Homepage), 
     path('about-us/', views.aboutus),
     path('courses/', views.courses),
     path('courses/<int:courseid>/',views.coursedetails),
