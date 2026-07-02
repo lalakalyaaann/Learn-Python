@@ -17,9 +17,67 @@
 
     </head>
     <body>
-        <div class = "main"> This is body paragraph for the site</div>
+        {% comment %} <div class = "main"> This is body paragraph for the site</div>
         <div class = "main"> {{bdata}}</div>
         <div class = "main"> {{clist}}</div>
-        <div class = "main"> {{studentdetails}}</div>
+        <div class = "main"> {{studentdetails}}</div> {% endcomment %}
+
+        {% for n in clist%}
+        <div>Learn {{n}}</div>
+        {% endfor %}
+
+        {% for n in clist%}
+        <div>{{forloop.revcounter}}Learn {{n}}</div>
+        {% endfor %}
+        <br>
+<table border ="1" cellpadding = 10px>
+    <tr>
+        <th> Name</th>
+        <th>Phone number</th>
+    </tr>
+    {%for d in studentdetails%}
+    <tr>
+        <td>{{d.name}}</td>
+        <td>{{d.phone}}</td>
+    </tr>
+    {%endfor%}
+
+<br>
+</table>
+
+
+{%for num in number%}
+    {{num}}
+    {%endfor%}
+    
+<br>
+<br>
+{% comment %} if else statement {% endcomment %}
+ If-Else Example
+ <br>
+
+{% for num in number %}
+
+    {% if num > 30 %}
+        {{ num }}  <br>
+    {% endif %}
+
+{% endfor %}
+<br>
+Voting Eligibility
+<br>
+{% for age in ages %}
+
+    {% if age >= 18 %}
+        Age {{ age }} is eligible to vote
+        <br>
+    {% else %}
+        Age {{ age }} is not eligible to vote 
+        <br>
+    {% endif %}
+
+{% endfor %}
+
+
     </body>
 </html>
