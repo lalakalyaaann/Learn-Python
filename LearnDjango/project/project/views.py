@@ -12,6 +12,10 @@ def coursedetails(request,courseid):
 def Homepage(request):
      data ={
         'title':'Home Page ',
-        'bdata':'This is body paragraph'
-          }
+        'bdata':'This is body paragraph',
+        'clist':['PHP','Java','Django'],
+        'studentdetails':[
+            {'name':'Kalyan','phone':9801234567},
+            {'name':'Ishan','phone':9876543210}
+        ]}
      return render(request,"index.html",data)
