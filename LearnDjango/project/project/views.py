@@ -1,7 +1,7 @@
 from django.http import HttpResponse
-from django.shortcuts import render 
+from django.shortcuts import render
 def aboutus(request):
-    return HttpResponse("Hello Guys!")
+    return render(request,"aboutus.html")
 
 def courses(request):
     return HttpResponse("This is the page for course")
