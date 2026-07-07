@@ -23,3 +23,14 @@ def Homepage(request):
          [12, 17, 18, 20, 15, 25, 16, 30],
          }
      return render(request,"index.html",data)
+
+def userform(request):
+    try:
+        name=request.POST('full_name')
+        password= request.POST('password')
+        print(name+password)
+    except:
+        pass     
+ 
+        return render (request,"userform.html")
+
