@@ -1,5 +1,5 @@
 from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 
 from .forms import UserForm
 
@@ -53,3 +53,35 @@ def userform(request):
 def submitform(request):
          return HttpResponse(request)
 
+from django.shortcuts import render
+
+def calculator(request):
+    data = {
+        "n1": "",
+        "n2": "",
+        "c": ""
+    }
+    try:
+        if request.method == "POST":
+            # Get values from form
+            data["n1"] = request.POST.get("num1")
+            data["n2"] = request.POST.get("num2")
+            opr = request.POST.get("opr")
+            # Convert to numbers
+            n1 = float(data["n1"])
+            n2 = float(data["n2"])
+            # Perform calculation
+            if opr == "+":
+                data["c"] = n1 + n2
+            elif opr == "-":
+                data["c"] = n1 - n2
+            elif opr == "*":
+                data["c"] = n1 * n2
+            elif opr == "/":
+                if n2 != 0:
+                    data["c"] = n1 / n2
+                else:
+                    data["c"] = "Cannot divide by zero."
+    except ValueError:
+        data["c"] = "Invalid DataType. Please enter int/float value."
+    return render(request, "calculator.html", data)
