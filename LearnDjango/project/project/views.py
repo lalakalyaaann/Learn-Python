@@ -85,3 +85,19 @@ def calculator(request):
     except ValueError:
         data["c"] = "Invalid DataType. Please enter int/float value."
     return render(request, "calculator.html", data)
+
+
+def oddeven(request):
+    data={
+        "n":'',
+        "c":'',
+    }
+    if request.method =="POST":
+        data["n"]=eval(request.POST.get('number'))
+        if data["n"] %2==0:
+           data["c"]="Number is even"
+        else :
+            data["c"]="Number is odd "
+
+
+    return render(request,"oddeven.html",data)
