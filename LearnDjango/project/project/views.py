@@ -101,3 +101,28 @@ def oddeven(request):
 
 
     return render(request,"oddeven.html",data)
+
+def marksheet(request):
+    if request.method=="POST":
+        m1=eval(request.POST.get('marks1'))
+        m2=eval(request.POST.get('marks2'))
+        m3=eval(request.POST.get('marks3'))
+        m4=eval(request.POST.get('marks4'))
+        m5=eval(request.POST.get('marks5'))
+        t=m1+m2+m3+m4+m5
+        p=t*100/500
+        if p>=80:
+            d="Distinction"
+        elif p>=60:
+            d="First Division"
+        elif p>=50:
+            d="Second Division"
+        elif p>=40:
+            d="Third Division"
+        else :
+            d="failed"
+        data={
+            'marks1':m1,'marks2':m2,'marks3':m3,'marks4':m4,'marks5':m5,
+            'total':t,'percent':p, 'division':d,
+        }
+    return render(request,"marksheet.html",data)
