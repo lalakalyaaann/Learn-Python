@@ -93,6 +93,9 @@ def oddeven(request):
         "c":'',
     }
     if request.method =="POST":
+        if request.POST.get('number')=="":
+            return render(request,"oddeven.html",{'error' : True})
+
         data["n"]=eval(request.POST.get('number'))
         if data["n"] %2==0:
            data["c"]="Number is even"
