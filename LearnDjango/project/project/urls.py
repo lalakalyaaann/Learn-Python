@@ -30,8 +30,10 @@ urlpatterns = [
     path('calculator/',views.calculator),
     path('oddeven/',views.oddeven),
     path('marksheet/',views.marksheet),
-
+    path('imageshow/',views.showimage),
 ]
+
+
 
 if settings.DEBUG :
     urlpatterns+=static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

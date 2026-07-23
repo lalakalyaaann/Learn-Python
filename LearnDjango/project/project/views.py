@@ -3,8 +3,13 @@ from django.shortcuts import render,redirect
 
 from .forms import UserForm
 
+
 def aboutus(request):
     return render(request,"aboutus.html")
+
+def showimage(request):
+    
+    return render(request, "displayimage.html")
 
 def courses(request):
     return HttpResponse("This is the page for course")
