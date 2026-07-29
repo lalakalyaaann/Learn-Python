@@ -1,12 +1,152 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Django Todo App</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Segoe UI',sans-serif;
+        }
+
+        body{
+            background:linear-gradient(135deg,#6a11cb,#2575fc);
+            min-height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            padding:30px;
+        }
+
+        .container{
+            width:700px;
+            background:rgba(255,255,255,0.15);
+            backdrop-filter:blur(15px);
+            border-radius:20px;
+            padding:30px;
+            box-shadow:0 10px 30px rgba(0,0,0,.3);
+        }
+
+        h1{
+            text-align:center;
+            color:white;
+            margin-bottom:25px;
+        }
+
+        form{
+            display:flex;
+            gap:10px;
+            margin-bottom:30px;
+        }
+
+        input[type=text]{
+            flex:1;
+            padding:14px;
+            border:none;
+            border-radius:10px;
+            outline:none;
+            font-size:16px;
+        }
+
+        button{
+            padding:14px 22px;
+            border:none;
+            border-radius:10px;
+            background:#00d26a;
+            color:white;
+            font-size:16px;
+            cursor:pointer;
+            transition:.3s;
+        }
+
+        button:hover{
+            background:#00b55b;
+        }
+
+        .task-box{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            background:white;
+            margin-bottom:15px;
+            padding:15px 20px;
+            border-radius:12px;
+            transition:.3s;
+        }
+
+        .task-box:hover{
+            transform:translateY(-3px);
+            box-shadow:0 5px 20px rgba(203, 74, 74, 0.15);
+        }
+
+        .task{
+            font-size:18px;
+            color:#333;
+        }
+
+        .delete-btn{
+            text-decoration:none;
+            background:#ff4b5c;
+            color:white;
+            padding:8px 15px;
+            border-radius:8px;
+            transition:.3s;
+        }
+
+        .delete-btn:hover{
+            background:#e03143;
+        }
+
+        .empty{
+            text-align:center;
+            color:white;
+            font-size:18px;
+        }
+
+    </style>
+
 </head>
 <body>
-    <h1> Home Page </h1>
-    <a href ="{% url 'logout'%}"> Logout </a>
+
+<div class="container">
+
+    <h1>Django Todo App</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="task" placeholder="Enter your task..." required>
+        <button type="submit">Add Task</button>
+    </form>
+
+    {% for task in tasks %}
+
+    <div class="task-box">
+
+        <div class="task">
+            {{ task.title }}
+        </div>
+
+        <a href="{% url 'delete' task.id %}" class="delete-btn">
+            Delete
+        </a>
+
+    </div>
+
+    {% empty %}
+
+        <p class="empty">
+            No Tasks Yet 
+        </p>
+
+    {% endfor %}
+
+</div>
+
 </body>
 </html>

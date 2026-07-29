@@ -1,12 +1,25 @@
 from django.shortcuts import render,HttpResponse,redirect
 from .forms import RegisterForm
+from .models import Todo
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 @login_required
 def home(request):
-    return render(request,"index.html")
+
+    if request.method == "POST":
+        task = request.POST.get("task")
+
+        if task:
+            Todo.objects.create(title=task)
+
+        return redirect("home")
+
+    tasks = Todo.objects.all().order_by("-id")
+
+    return render(request, "index.html", {"tasks": tasks})
+
 
 def register_view(request):
     if request.method == "POST":
@@ -43,4 +56,11 @@ def logout_view(request):
      
 
 def delete_task(request,id):
-    return HttpResponse("Deleted") 
+    task = Todo.objects.get(id=id)
+    task.delete()
+    return redirect("home")
+
+
+
+
+
